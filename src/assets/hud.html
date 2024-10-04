@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./index.css">
+  <title>HUD</title>
+  <script type="module">
+    import HUD from './path/to/classes/HUD.js';
+
+    const hud = new HUD();
+
+    window.addEventListener('message', (event) => {
+      const { ammo, health, armor } = event.data;
+      hud.updateAmmo(ammo);
+      hud.updateHealth(health);
+      hud.updateArmor(armor);
+    });
+  </script>
+</head>
+
+<body>
+  <div class="hud">
+    <div class="ammo">
+      <bitmap-font text="74"></bitmap-font>
+    </div>
+    <div class="health">
+      <bitmap-font text="69%"></bitmap-font>
+    </div>
+    <div class="arms"></div>
+    <doom-hero life="100"></doom-hero>
+    <div class="armor">
+      <bitmap-font text="157%"></bitmap-font>
+    </div>
+    <div class="items"></div>
+    <div class="stats"></div>
+  </div>
+</body>
+
+</html>
