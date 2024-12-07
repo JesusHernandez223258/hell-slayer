@@ -12,10 +12,21 @@ class App {
       parent: container, // Vincula el juego al contenedor
       scene: [BootScene, GameScene],
     };
+
+    // Escuchar un clic en el contenedor para inicializar el juego
+    this.container.addEventListener("click", this.initializeGame.bind(this));
+  }
+
+  initializeGame() {
+    // Solo inicializar el juego si aún no está creado
+    if (!this.game) {
+      this.game = new Phaser.Game(this.config);
+      console.log("Juego inicializado después de la interacción del usuario.");
+    }
   }
 
   render() {
-    new Phaser.Game(this.config); // Inicia Phaser con la configuración
+    console.log("Haz clic para inicializar el juego.");
   }
 }
 
